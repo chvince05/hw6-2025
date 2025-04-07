@@ -60,12 +60,12 @@ document.getElementById("mute").addEventListener("click", function() {
 	console.log("Mute"); //done
 	video = document.getElementById("player1");
 	let mutebox = document.getElementById("mute");
-	if(video.muted == true){
-		video.muted = false;
+	if(!video.muted){
+		video.muted = true;
 		mutebox.textContent = "Unmute";
 	}
 	else{
-		video.muted = true;
+		video.muted = false;
 		mutebox.textContent = "Mute";
 	}
 });
