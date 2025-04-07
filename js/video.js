@@ -74,11 +74,11 @@ document.getElementById("mute").addEventListener("click", function() {
 //Step 8: Volume Slider
 document.getElementById("slider").addEventListener("click", function() {
 	video = document.getElementById("player1");
+	let volslidertext = document.getElementById("volume");
 	let volumeslider = document.getElementById("slider").value / 100;
 	video.volume = volumeslider;
-	console.log("The current volume is " + volumeslider);
-	let volslidertext = document.getElementById("volume");
 	volslidertext.textContent = (volumeslider * 100) + "%";
+	console.log("The current volume is " + volumeslider);
 });
 
 //Step 9: Styled
