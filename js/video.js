@@ -2,18 +2,19 @@ var video;
 
 //Step 1: Page Load
 window.addEventListener("load", function() { //done
-	console.log("Good job opening the window, step 1 page load");
+	console.log("Good job opening the window");
+	video = document.querySelector("#player1");
 	video.autoplay = false;
-	console.log('auto play is set to ' + video.autoplay);
+	console.log('Auto play is set to ' + video.autoplay);
 	video.loop = false;
-	video = document.getElementById("player1");
-	console.log('loop is set to ' + video.loop);
+	console.log('Loop is set to ' + video.loop);
 });
 
 //Step 2: Play Button
 
 document.getElementById("play").addEventListener("click", function () {
 	console.log("Play Video");
+	video = document.getElementById("player1");
 	video.volume = 1; //done
 	video.play();
 });
@@ -21,6 +22,7 @@ document.getElementById("play").addEventListener("click", function () {
 //Step 3: Pause Button
 document.getElementById("pause").addEventListener("click", function() {
 	console.log("Pause Video"); //done
+	video = document.getElementById("player1");
 	video.pause();
 	
 });
@@ -28,6 +30,7 @@ document.getElementById("pause").addEventListener("click", function() {
 //Step 4: Slow Down
 document.getElementById("slower").addEventListener("click", function() {
 	console.log("Slow down video"); //done
+	video = document.getElementById("player1");
 	video.playbackRate = video.playbackRate * 0.9;
 	console.log("Speed is " + video.playbackRate);
 });
@@ -36,14 +39,15 @@ document.getElementById("slower").addEventListener("click", function() {
 //Step 5: Speed Up
 document.getElementById("faster").addEventListener("click", function() {
 	console.log("Speed up Video");
-	video.playbackRate = video.playbackRate * 1.1;
+	video = document.getElementById("player1");
+	video.playbackRate = video.playbackRate * ((1)/(0.9));
 	console.log("Speed is " + video.playbackRate);
-
 });
 
 //Step 6: Skip Ahead
 document.getElementById("skip").addEventListener("click", function() {
 	console.log("Skip ahead");
+	video = document.getElementById("player1");
 	video.currentTime = video.currentTime + 10;
 	if (video.currentTime > video.duration){
 		video.currentTime = 0;
@@ -55,20 +59,26 @@ document.getElementById("skip").addEventListener("click", function() {
 //Step 7: Mute
 document.getElementById("mute").addEventListener("click", function() {
 	console.log("Mute"); //done
+	video = document.getElementById("player1");
 	let mutebox = document.getElementById("mute");
 	if(video.muted == true){
 		video.muted = false;
-		mutebox.textContent = "Unmute"
+		mutebox.textContent = "Unmute";
 	}
-	else if (video.muted == false){
+	else{
 		video.muted = true;
-		mutebox.textContent = "Mute"
+		mutebox.textContent = "Mute";
 	}
 });
 
 //Step 8: Volume Slider
-document.getElementById("mute").addEventListener("click", function() {
-	document.getElementById("player1").classList.add("oldSchool");
+document.getElementById("slider").addEventListener("click", function() {
+	video = document.getElementById("player1");
+	let volumeslider = document.getElementById("slider").value / 100;
+	video.volume = volumeslider;
+	console.log("The current volume is " + volumeslider);
+	let volslidertext = document.getElementById("volume");
+	volslidertext.textContent = (volumeslider * 100) + "%";
 });
 
 //Step 9: Styled
