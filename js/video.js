@@ -60,7 +60,7 @@ document.getElementById("mute").addEventListener("click", function() {
 	console.log("Mute"); //done
 	video = document.getElementById("player1");
 	let mutebox = document.getElementById("mute");
-	if(!video.muted){
+	if(video.muted == false){
 		video.muted = true;
 		mutebox.textContent = "Unmute";
 	}
