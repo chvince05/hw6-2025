@@ -11,11 +11,10 @@ window.addEventListener("load", function() { //done
 });
 
 //Step 2: Play Button
-
 document.getElementById("play").addEventListener("click", function () {
+	let volumeslider = document.getElementById("slider").value;
 	console.log("Play Video");
-	video = document.getElementById("player1");
-	video.volume = 1; //done
+	document.getElementById("volume").innerText = volumeslider + "%";
 	video.play();
 });
 
@@ -72,13 +71,13 @@ document.getElementById("mute").addEventListener("click", function() {
 });
 
 //Step 8: Volume Slider
-document.getElementById("slider").addEventListener("click", function() {
+document.getElementById("slider").addEventListener("input", function() {
 	video = document.getElementById("player1");
 	let volslidertext = document.getElementById("volume");
 	let volumeslider = document.getElementById("slider").value / 100;
 	video.volume = volumeslider;
 	volslidertext.textContent = (volumeslider * 100) + "%";
-	console.log("The current volume is " + volumeslider);
+	console.log("The current value is " + volumeslider);
 });
 
 //Step 9: Styled
